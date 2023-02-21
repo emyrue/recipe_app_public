@@ -14,18 +14,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_215346) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.string "unit"
-    t.string "quantity"
-    t.bigint "recipe_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string "name"
+    t.text "ingredients"
     t.text "directions"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -46,6 +37,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_215346) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "users"
 end
