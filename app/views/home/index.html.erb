@@ -1,0 +1,6 @@
+<%= link_to "login", user_session_path %>
+<%
+  @recipes.each do |recipe|
+%>
+  <p><%=recipe.name%></p>
+<%end%>
