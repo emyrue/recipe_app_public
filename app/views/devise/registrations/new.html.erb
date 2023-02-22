@@ -1,5 +1,13 @@
 <h2>Sign up</h2>
 
+<%= form_tag '#', method: :validate_code do %>
+  <div>
+    <label>Code</label><br />
+    <input name="code" id="code" cols="30" rows="10"></input>
+  </div>
+  <button type="submit">Submit</button>
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
