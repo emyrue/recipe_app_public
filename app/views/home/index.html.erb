@@ -1,6 +1,13 @@
+<% unless current_user%>
 <%= link_to "login", user_session_path %>
+<%end%>
+<% if current_user%>
+<%= link_to "sign out", destroy_user_session_path, data: { turbo_method: :delete }%>
+<%end%>
+
 <%
   @recipes.each do |recipe|
 %>
   <p><%=recipe.name%></p>
+  <p><%=recipe.description%></p>
 <%end%>
