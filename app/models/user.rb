@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :recipes, dependent: :delete_all
   validates :username, presence: true, uniqueness: true
+  validates :code, acceptance: { accept: [ENV.fetch('SECRET_CODE', nil)], message: 'Invalid code' }
 end

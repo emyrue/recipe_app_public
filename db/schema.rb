@@ -26,6 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_215346) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "code"
+    t.boolean "verified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
