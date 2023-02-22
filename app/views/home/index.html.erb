@@ -8,6 +8,6 @@
 <%
   @recipes.each do |recipe|
 %>
-  <p><%=recipe.name%></p>
-  <p><%=recipe.description%></p>
+<%= render partial: 'partials/recipe_preview', locals: { recipe: recipe }%>
 <%end%>
+
