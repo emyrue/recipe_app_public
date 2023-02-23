@@ -11,6 +11,8 @@
     <%= form.text_area :ingredients %>
     <%= form.label :directions %>
     <%= form.text_area :directions %>
+    <%= form.hidden_field :image, value: @recipe.cached_image_data, id: nil %>
+    <%= form.file_field :image %>
     <%= form.submit %>
   <%end%>
   <% else %>
