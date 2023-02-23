@@ -1,0 +1,6 @@
+<h1><%= @recipe.name %></h1>
+<p><%= @recipe.description %></p>
+<p><%= @recipe.ingredients %></p>
+<p><%= @recipe.directions %></p>
+<%=button_to 'Delete', recipe_path(@recipe.id), method: :delete%>
+<%=button_to 'Edit', edit_recipe_path(@recipe.id), method: :get%>

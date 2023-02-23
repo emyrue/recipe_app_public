@@ -1,0 +1,13 @@
+<h1>Edit Recipe</h1>
+<%= flash[:error] %>
+<%= form_with model: @recipe, local: true, method: :patch, scope: :recipe do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <%= form.label :ingredients %>
+  <%= form.text_area :ingredients %>
+  <%= form.label :directions %>
+  <%= form.text_area :directions %>
+  <%= form.submit %>
+<%end%>
