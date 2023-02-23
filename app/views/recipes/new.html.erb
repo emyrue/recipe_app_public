@@ -1,13 +1,18 @@
-<h1>New Recipe</h1>
-<%= flash[:error] %>
-<%= form_with model: @recipe, local: true, method: :post, scope: :recipe do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :description %>
-  <%= form.text_field :description %>
-  <%= form.label :ingredients %>
-  <%= form.text_area :ingredients %>
-  <%= form.label :directions %>
-  <%= form.text_area :directions %>
-  <%= form.submit %>
+<%= render partial: 'partials/navbar'%>
+<% if current_user%>
+  <h1>New Recipe</h1>
+  <%= flash[:error] %>
+  <%= form_with model: @recipe, local: true, method: :post, scope: :recipe do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+    <%= form.label :ingredients %>
+    <%= form.text_area :ingredients %>
+    <%= form.label :directions %>
+    <%= form.text_area :directions %>
+    <%= form.submit %>
+  <%end%>
+  <% else %>
+  <h1>You must be signed in to create, edit, or delete recipes</h1>
 <%end%>
