@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(user_id: current_user.id, name: params[:recipe][:name],
                          ingredients: params[:recipe][:ingredients], directions: params[:recipe][:directions],
-                         description: params[:recipe][:description], image: params[:recipe][:image])
+                         description: params[:recipe][:description], image_data: params[:recipe][:image])
     if @recipe.save
       redirect_to '/'
     else
