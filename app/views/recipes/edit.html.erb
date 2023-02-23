@@ -1,3 +1,5 @@
+<%= render partial: 'partials/navbar'%>
+<%if current_user%>
 <h1>Edit Recipe</h1>
 <%= flash[:error] %>
 <%= form_with model: @recipe, local: true, method: :patch, scope: :recipe do |form| %>
@@ -10,4 +12,7 @@
   <%= form.label :directions %>
   <%= form.text_area :directions %>
   <%= form.submit %>
+<%end%>
+<%else%>
+<h1>You must be signed in to create, edit, or delete recipes</h1>
 <%end%>

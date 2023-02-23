@@ -1,9 +1,4 @@
-<% unless current_user%>
-<%= link_to "login", user_session_path %>
-<%end%>
-<% if current_user%>
-<%= link_to "sign out", destroy_user_session_path, data: { turbo_method: :delete }%>
-<%end%>
+<%= render partial: 'partials/navbar'%>
 
 <%
   @recipes.each do |recipe|
@@ -11,5 +6,7 @@
 <%= render partial: 'partials/recipe_preview', locals: { recipe: recipe }%>
 <%end%>
 
+<% if current_user%>
 <%= link_to "Create new recipe", new_recipe_path %>
+<% end %>
 
