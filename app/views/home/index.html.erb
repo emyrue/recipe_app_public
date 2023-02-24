@@ -17,12 +17,12 @@
 
 <% if @total_pages < 10 %>
 <% [*1..@total_pages].each do |page| %>
-  <%= link_to page, root_path(page: page, query: @params[:query]), :class => "active" %>
+  <%= link_to page, root_path(page: page, query: @params[:query]), :class => "#{@current_page == page ? 'active' : ''}" %>
 <%end%>
 <% else %>
   <% [*1..@total_pages].each do |page| %>
     <% if (@current_page - page).abs() < 1 || (page - 1).abs() < 1 || (@total_pages - page) < 1 %>
-      <%= link_to page, root_path(page: page, query: @params[:query]), :class => "<%= 'active' if (page == @current_page) %>" %>
+      <%= link_to page, root_path(page: page, query: @params[:query]), :class => "#{@current_page == page ? 'active' : ''}" %>
     <% else %>
       .
     <% end %>
