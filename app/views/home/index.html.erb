@@ -1,5 +1,10 @@
 <%= render partial: 'partials/navbar'%>
 
+<%= form_with url: root_path, method: :get do %>
+  <input onkeydown="if(this.value == '') {this.name = 'query'} else {this.name = 'query'}" value=<%="#{@params[:query]}"%>>
+  <%= submit_tag "Search", name:nil %>
+<%end%>
+
 <%
   @recipes.each do |recipe|
 %>
