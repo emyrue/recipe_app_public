@@ -11,6 +11,18 @@
 <%= render partial: 'partials/recipe_preview', locals: { recipe: recipe }%>
 <%end%>
 
+<% if @current_page > 1 %>
+  <%= link_to "Previous", root_path(page: @current_page - 1, query: @params[:query]) %>
+<% end %>
+
+<% [*1..@total_pages].each do |page| %>
+  <%= link_to page, root_path(page: page, query: @params[:query]) %>
+<%end%>
+
+<% if @current_page < @total_pages %>
+  <%= link_to "Next", root_path(page: @current_page + 1, query: @params[:query]) %>
+<% end %>
+<br/>
 <% if current_user%>
 <%= link_to "Create new recipe", new_recipe_path %>
 <% end %>
