@@ -1,7 +1,8 @@
 <%= render partial: 'partials/navbar'%>
 <% if @recipe.image_data %>
-<%= image_tag @recipe.image_data %>
 <% end %>
+<img src="@recipe." alt="edit" />
+<%= image_tag @recipe.image_url %>
 <h1><%= @recipe.name %></h1>
 <p><%= @recipe.description %></p>
 <p><%= @recipe.ingredients %></p>
