@@ -1,4 +1,7 @@
 <a href=<%= recipe_path(recipe.id)%> class='recipe_preview'>
   <p><%=recipe.name%></p>
+  <% if recipe.image_data%>
+  <%= image_tag recipe.generate_thumbnail%>
+  <% end %>
   <p><%=recipe.description%></p>
 </a>
