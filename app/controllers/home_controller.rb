@@ -8,10 +8,10 @@ class HomeController < ApplicationController
     @recipes_all = Recipe.all
     @params = params.permit(:page, :query)
     @current_page = params[:page].to_i
-    if @current_page == 0
-      @current_page = 1
-    end
-    @recipes = @recipes_all.where("lower(name) LIKE ?", "%#{params[:query].to_s.downcase}%").offset((@current_page-1) * RECIPES_PER_PAGE).limit(RECIPES_PER_PAGE)
+    @current_page = 1 if @current_page.zero?
+    @recipes = @recipes_all.where('lower(name) LIKE ?',
+                                  "%#{params[:query].to_s.downcase}%").offset((@current_page - 1) * RECIPES_PER_PAGE)
+      .limit(RECIPES_PER_PAGE)
     @total_pages = (@recipes_all.count / RECIPES_PER_PAGE.to_f).ceil
   end
 end
