@@ -1,9 +1,21 @@
-<nav>
-  <%= link_to "home", root_path %>
-  <% unless current_user%>
-  <%= link_to "login", user_session_path %>
-  <%end%>
-  <% if current_user%>
-  <%= link_to "sign out", destroy_user_session_path, data: { turbo_method: :delete }%>
-  <%end%>
+<nav class="navbar">
+  <ul class="navlinks">
+    <li class="navlink">
+      <%= link_to "Home", root_path %>
+    </li>
+
+    <%# Removes the Login link if a user is not signed in %>
+    <% unless current_user%>
+      <li class="navlink">
+      <%= link_to "Login", user_session_path %>
+      <%end%>
+      </li>
+
+    <%# Creates a signout link if a user is not signed in %>
+    <% if current_user%>
+      <li class="navlink">
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }%>
+      </li>
+    <%end%>
+  </ul>
 </nav>

@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  padding: 10px;
+  background-color: lightblue;
+
+  .navlinks {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    gap: 25px;
+
+    .navlink {
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 30px;
+      }
+    }
+  }
+}
