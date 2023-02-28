@@ -11,28 +11,8 @@
 <%= render partial: 'partials/recipe_preview', locals: { recipe: recipe }%>
 <%end%>
 
-<% if @current_page > 1 %>
-  <%= link_to "Previous", root_path(page: @current_page - 1, query: @params[:query]) %>
-<% end %>
+<%= render partial: 'partials/pagination_bar', locals: { current_page: @current_page, total_pages: @total_pages, params: @params } %>
 
-<% if @total_pages < 10 %>
-<% [*1..@total_pages].each do |page| %>
-  <%= link_to page, root_path(page: page, query: @params[:query]), :class => "#{@current_page == page ? 'active' : ''}" %>
-<%end%>
-<% else %>
-  <% [*1..@total_pages].each do |page| %>
-    <% if (@current_page - page).abs() < 1 || (page - 1).abs() < 1 || (@total_pages - page) < 1 %>
-      <%= link_to page, root_path(page: page, query: @params[:query]), :class => "#{@current_page == page ? 'active' : ''}" %>
-    <% else %>
-      .
-    <% end %>
-  <%end%>
-<% end %>
-
-<% if @current_page < @total_pages %>
-  <%= link_to "Next", root_path(page: @current_page + 1, query: @params[:query]) %>
-<% end %>
-<br/>
 <% if current_user%>
 <%= link_to "Create new recipe", new_recipe_path %>
 <% end %>
