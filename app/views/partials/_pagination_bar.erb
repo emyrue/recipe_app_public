@@ -1,21 +1,22 @@
+<div class="pagination-bar">
 <% if @current_page > 1 %>
-  <%= link_to "Previous", root_path(page: @current_page - 1, query: @params[:query]) %>
+  <%= link_to image_tag('previous.svg', class: 'previous'), root_path(page: @current_page - 1, query: @params[:query]) %>
 <% end %>
 <% if total_pages < 10 %>
 <% [*1..total_pages].each do |page| %>
-  <%= link_to page, root_path(page: page, query: params[:query]), :class => "#{current_page == page ? 'active' : ''}" %>
+  <%= link_to page, root_path(page: page, query: params[:query]), :class => "#{current_page == page ? 'active page-number' : 'page-number'}" %>
 <%end%>
 <% else %>
   <% [*1..total_pages].each do |page| %>
-    <% if (current_page - page).abs() < 1 || (page - 1).abs() < 1 || (total_pages - page) < 1 %>
-      <%= link_to page, root_path(page: page, query: params[:query]), :class => "#{current_page == page ? 'active' : ''}" %>
+    <% if (current_page - page).abs() < 2 || (page - 1).abs() < 2 || (total_pages - page) < 2 %>
+      <%= link_to page, root_path(page: page, query: params[:query]), :class => "#{current_page == page ? 'active page-number' : 'page-number'}" %>
     <% else %>
-      .
+      <span>.</span>
     <% end %>
   <%end%>
 <% end %>
-
 <% if @current_page < @total_pages %>
-  <%= link_to "Next", root_path(page: @current_page + 1, query: @params[:query]) %>
+  <%= link_to image_tag('next.svg', class: 'next'), root_path(page: @current_page + 1, query: @params[:query]) %>
 <% end %>
+</div>
 <br/>
