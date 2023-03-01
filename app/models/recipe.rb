@@ -8,7 +8,6 @@ class Recipe < ApplicationRecord
   validates :directions, presence: true
 
   def generate_thumbnail
-    image_derivatives!
     image_url(:small)
   end
 end

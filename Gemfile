@@ -79,3 +79,4 @@ gem 'devise'
 
 gem 'mini_magick'
 gem 'shrine', '~> 3.2'
+gem 'cloudinary'
