@@ -1,0 +1,31 @@
+.recipe-preview {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  color: black;
+
+  p {
+    margin: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+.preview-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-name {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.preview-description {
+  font-size: 15px;
+  height: 100%;
+  padding-left: 5px;
+  text-align: left;
+}

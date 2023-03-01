@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   # placeholder logic to prevent an endless user session.
   # Comment out before_action :signout if you want to stay logged in
 
-  RECIPES_PER_PAGE = 1
+  RECIPES_PER_PAGE = 4
 
   def index
     @recipes_all = Recipe.where('lower(name) LIKE ?', "%#{params[:query].to_s.downcase}%")
