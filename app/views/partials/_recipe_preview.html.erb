@@ -1,6 +1,8 @@
 <a href=<%= recipe_path(recipe.id)%> class= "recipe-preview">
   <% if recipe.image_data%>
-    <%= image_tag recipe.generate_thumbnail%>
+  <%recipe.image_derivatives!%>
+  <%= image_tag recipe.image_url(:small)%>
+  <%p recipe.image_data%>
   <% end %>
   <div class="preview-info">
     <p class="preview-name"><%=recipe.name%></p>

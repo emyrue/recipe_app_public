@@ -6,11 +6,22 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require 'cloudinary'
+require 'cloudinary/uploader'
+require 'cloudinary/utils'
+
 module RecipeWebapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    #Cloudinary Storage info
+    Cloudinary.config do |config|
+      config.cloud_name = ENV['CLOUD_NAME']
+      config.api_key = ENV['CLOUD_KEY']
+      config.api_secret = ENV['CLOUD_SECRET']
+      config.secure = true
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #

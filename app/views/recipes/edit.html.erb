@@ -11,6 +11,8 @@
   <%= form.text_area :ingredients %>
   <%= form.label :directions %>
   <%= form.text_area :directions %>
+  <%= form.label :image%>
+  <%= form.file_field :image, class: 'form-control', direct_upload: true %>
   <%= form.submit %>
 <%end%>
 <%else%>

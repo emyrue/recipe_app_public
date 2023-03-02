@@ -77,5 +77,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # devise
 gem 'devise'
 
-gem 'mini_magick'
-gem 'shrine', '~> 3.2'
+gem 'cloudinary'
+gem 'shrine'
+gem 'shrine-cloudinary'

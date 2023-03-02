@@ -1,6 +1,5 @@
 <%= render partial: 'partials/navbar'%>
 <% if @recipe.image_data %>
-<%p @recipe.image_data%>
 <%@recipe.image_derivatives!%>
 <%= image_tag @recipe.image_url(:large) %>
 <% end %>

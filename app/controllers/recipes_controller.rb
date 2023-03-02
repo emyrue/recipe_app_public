@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params)
-
+    @recipe.image_derivatives! if @recipe.image_changed?
     @recipe.user_id = current_user.id
     if @recipe.save
       redirect_to '/'
@@ -21,7 +21,10 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+    @image_data = @recipe.image_data
     if @recipe.update(recipe_params)
+      Cloudinary::Api.delete_resources(@image_data)
+      @recipe.image_derivatives!
       redirect_to '/'
     else
       flash[:error] = @recipe.errors.full_messages
@@ -31,7 +34,12 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
+    @image_data = @recipe.image_data
+    if @recipe.destroy
+      Cloudinary::Api.delete_resources(@image_data)
+    else
+      flash[:error] = @recipe.errors.full_messages
+    end
     redirect_to '/'
   end
 
