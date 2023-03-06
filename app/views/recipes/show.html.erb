@@ -1,13 +1,2 @@
 <%= render partial: 'partials/navbar'%>
-<% if @recipe.image_data %>
-<%@recipe.image_derivatives!%>
-<%= image_tag @recipe.image_url(:large) %>
-<% end %>
-<h1><%= @recipe.name %></h1>
-<p><%= @recipe.description %></p>
-<p><%= simple_format(@recipe.ingredients) %></p>
-<p><%= simple_format(@recipe.directions) %></p>
-<%if current_user%>
-<%=button_to 'Delete', recipe_path(@recipe.id), method: :delete%>
-<%=button_to 'Edit', edit_recipe_path(@recipe.id), method: :get%>
-<%end%>
+<%= render partial: 'partials/recipe_full_view', locals: { recipe: @recipe }%>

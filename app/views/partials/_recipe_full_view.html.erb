@@ -1,0 +1,25 @@
+
+<section class="full-recipe-view">
+  <article class="recipe">
+    <% if recipe.image_data %>
+    <%recipe.image_derivatives!%>
+    <%= image_tag recipe.image_url(:large),:class => "recipe-image" %>
+    <% end %>
+    <div class="recipe-details">
+      <h1 class="recipe-title"><%= recipe.name %></h1>
+      <p class="recipe-description"><%= recipe.description %></p>
+      <h2>Ingredients</h2>
+      <div class="recipe-ingredients"><%= simple_format(recipe.ingredients) %></div>
+      <h3>How to make</h3>
+      <div class="recipe-directions"><%= simple_format(recipe.directions) %></div>
+    </div>
+  </article class="recipe">
+
+  <%# renders buttons only if a user is logged in %>
+  <%if current_user%>
+  <div class="admin-buttons">
+    <%=button_to 'Delete', recipe_path(recipe.id), method: :delete%>
+    <%=button_to 'Edit', edit_recipe_path(recipe.id), method: :get%>
+  </div>
+  <%end%>
+</section>
