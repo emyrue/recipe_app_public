@@ -5,10 +5,14 @@
     <%recipe.image_derivatives!%>
     <%= image_tag recipe.image_url(:large),:class => "recipe-image" %>
     <% end %>
-    <h1 class="recipe-title"><%= recipe.name %></h1>
-    <p class="recipe-description"><%= recipe.description %></p>
-    <div class="recipe-ingredients"><%= simple_format(recipe.ingredients) %></div>
-    <div class="recipe-directions"><%= simple_format(recipe.directions) %></div>
+    <div class="recipe-details">
+      <h1 class="recipe-title"><%= recipe.name %></h1>
+      <p class="recipe-description"><%= recipe.description %></p>
+      <h2>Ingredients</h2>
+      <div class="recipe-ingredients"><%= simple_format(recipe.ingredients) %></div>
+      <h3>How to make</h3>
+      <div class="recipe-directions"><%= simple_format(recipe.directions) %></div>
+    </div>
   </article class="recipe">
 
   <%# renders buttons only if a user is logged in %>
