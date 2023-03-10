@@ -8,6 +8,11 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
     - "./app/models/user.rb"
+    - "./app/controllers/users/confirmations_controller.rb"
+    - "./app/controllers/users/unlocks_controller.rb"
+    - "./app/controllers/users/sessions_controller.rb"
+    - "./app/controllers/users/registrations_controller.rb"
+    - "./app/controllers/users/passwords_controller.rb"
 
   DisplayCopNames: true
 
