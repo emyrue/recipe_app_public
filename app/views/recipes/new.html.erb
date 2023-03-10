@@ -1,19 +1,29 @@
 <%= render partial: 'partials/navbar'%>
 <section class="recipe-form">
 <% if current_user%>
-  <h1>New Recipe</h1>
+  <h1 class="recipe-form-heading">New Recipe</h1>
   <%= flash[:error] %>
   <%= form_with model: @recipe, local: true, method: :post, scope: :recipe do |form| %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-    <%= form.label :ingredients %>
-    <%= form.text_area :ingredients %>
-    <%= form.label :directions %>
-    <%= form.text_area :directions %>
-    <%= form.label :image%>
-    <%= form.file_field :image, class: 'form-control', direct_upload: true, size: "60" %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+    <div>
+      <%= form.label :ingredients %>
+      <%= form.text_area :ingredients %>
+    </div>
+    <div>
+      <%= form.label :directions %>
+      <%= form.text_area :directions %>
+    </div>
+    <div>
+      <%= form.label :image%>
+      <%= form.file_field :image, class: 'form-control', direct_upload: true, size: "60" %>
+    </div>
     <%= form.submit %>
   <%end%>
   <% else %>

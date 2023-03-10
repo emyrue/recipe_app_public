@@ -1,20 +1,32 @@
 <%= render partial: 'partials/navbar'%>
+<section class="recipe-form">
 <%if current_user%>
 <h1>Edit Recipe</h1>
 <%= flash[:error] %>
 <%= form_with model: @recipe, local: true, method: :patch, scope: :recipe do |form| %>
+  <div>
   <%= form.label :name %>
   <%= form.text_field :name %>
+  </div>
+  <div>
   <%= form.label :description %>
   <%= form.text_field :description %>
+  </div>
+  <div>
   <%= form.label :ingredients %>
   <%= form.text_area :ingredients %>
+  </div>
+  <div>
   <%= form.label :directions %>
   <%= form.text_area :directions %>
+  </div>
+  <div>
   <%= form.label :image%>
   <%= form.file_field :image, class: 'form-control', direct_upload: true %>
+  </div>
   <%= form.submit %>
 <%end%>
 <%else%>
 <h1>You must be signed in to create, edit, or delete recipes</h1>
 <%end%>
+</section>
