@@ -1,0 +1,25 @@
+.recipe-form {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      border: 1px solid gray;
+      width: 50%;
+      margin: 10px 0;
+    }
+
+    .form-control {
+      border: none;
+      width: 50%;
+      background-color: #f5f5f5;
+    }
+
+    textarea {
+      border: 1px solid gray;
+      resize: none;
+      width: 50%;
+    }
+  }
+}
