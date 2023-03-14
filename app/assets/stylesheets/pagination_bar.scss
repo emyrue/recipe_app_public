@@ -10,7 +10,6 @@
   a {
     text-decoration: none;
     color: black;
-    border: 1px solid gray;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -18,10 +17,12 @@
     width: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 200;
+    background: none;
+    border: 2px solid black;
   }
 
   .active {
-    background-color: lightgray;
+    background-color: #ffce5c;
     font-weight: normal;
   }
 
