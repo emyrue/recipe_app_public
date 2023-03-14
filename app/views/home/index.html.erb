@@ -1,8 +1,8 @@
 <%= render partial: 'partials/navbar'%>
 
 <%= form_with url: root_path, method: :get do %>
-  <input onkeydown="if(this.value == '') {this.name = 'query'} else {this.name = 'query'}" value=<%="#{@params[:query]}"%>>
-  <%= submit_tag "Search", name:nil %>
+  <input onkeydown="if(this.value == '') {this.name = 'query'} else {this.name = 'query'}" value=<%="#{@params[:query]}"%>, class:"search-bar">
+  <%= image_submit_tag('search_icon.svg', name:nil, class:"search-icon") %>
 <%end%>
 
 <%
