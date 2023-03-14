@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 
   .recipe-image {
     width: 85%;
@@ -19,5 +20,8 @@
     align-items: center;
     width: 85%;
     max-width: 842px;
+    padding: 51px;
+    background: #ffce5c;
+    line-height: 30px;
   }
 }
