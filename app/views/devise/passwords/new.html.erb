@@ -1,3 +1,5 @@
+<%= render partial: 'partials/navbar'%>
+
 <h2 class="forgot-password-heading">Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "forgot-password-form" }) do |f| %>
