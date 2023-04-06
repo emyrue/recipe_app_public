@@ -81,6 +81,11 @@ test:
 #
 production:
   <<: *default
-  database: recipe_webapp_production
-  username: recipe_webapp
-  password: <%= ENV["RECIPE_WEBAPP_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
+  # database: recipe_webapp_production
+  # username: recipe_webapp
+  # password: <%= ENV["RECIPE_WEBAPP_DATABASE_PASSWORD"] %>
+
+  # <<: *default
+  
