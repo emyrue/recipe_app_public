@@ -80,3 +80,5 @@ gem 'devise'
 gem 'cloudinary'
 gem 'shrine'
 gem 'shrine-cloudinary'
+
+gem 'cancancan'
