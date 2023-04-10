@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :delete_all
   validates :username, presence: true, uniqueness: true
   validates :code, acceptance: { accept: [ENV['SECRET_CODE']], message: 'Invalid code' }
+  
+  def admin?
+    user_type == 'admin'
+   end
 end
