@@ -10,5 +10,5 @@ class User < ApplicationRecord
   
   def admin?
     user_type == 'admin'
-   end
+  end
 end
